@@ -14,7 +14,7 @@ export default function UserRegister() {
     console.log("Sending register body:", body);
 
     try {
-      const res = await fetch("http://localhost:3000/api/v1/user/signup", {
+      const res = await fetch("https://comp-3123-assignment1-seven.vercel.app/api/v1/user/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)

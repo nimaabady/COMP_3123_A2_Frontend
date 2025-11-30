@@ -11,7 +11,7 @@ export default function EmployeeDashboard() {
 
   async function fetchAllEmployees() {
     try {
-      const res = await fetch("http://localhost:3000/api/v1/emp/employees", {
+      const res = await fetch("https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees", {
         method: "GET"
       });
       const data = await res.json();
@@ -29,7 +29,7 @@ export default function EmployeeDashboard() {
   async function deleteEmployee(empId) {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/v1/emp/employees?eid=${empId}`,
+        `https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees?eid=${empId}`,
         { method: "DELETE" }
       );
       if (res.ok) {
@@ -45,11 +45,11 @@ export default function EmployeeDashboard() {
 
   async function fetchByDepartmentOrPosition(input) {
     try {
-        const resDept = await fetch(`http://localhost:3000/api/v1/emp/employees/search/department/${input}`);
+        const resDept = await fetch(`https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees/search/department/${input}`);
         const deptData = await resDept.json();
 
         // Fetch by position
-        const resPos = await fetch(`http://localhost:3000/api/v1/emp/employees/search/position/${input}`);
+        const resPos = await fetch(`https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees/search/position/${input}`);
         const posData = await resPos.json();
 
         setEmployees([...deptData, ...posData]);
@@ -127,7 +127,13 @@ export default function EmployeeDashboard() {
               <td style={{ padding: "8px" }}>{emp.last_name}</td>
               <td style={{ padding: "8px" }}>{emp.position}</td>
               <td style={{ padding: "8px" }}>
-                <Button variant="contained" color="primary" onClick={() => navigate(`/employee/${emp._id}`)}>View</Button>
+                <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={() => navigate(`/employee/${emp._id}`)}
+                >
+                View
+                </Button>
                 <Button
                   variant="contained"
                   color="secondary"

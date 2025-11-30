@@ -19,7 +19,7 @@ export default function EmployeeEdit() {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/v1/emp/employees/${id}`);
+        const res = await fetch(`https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees/${id}`);
         const data = await res.json();
         setEmployee(data);
       } catch (err) {
@@ -38,7 +38,7 @@ export default function EmployeeEdit() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/emp/employees/${id}`, {
+      const res = await fetch(`https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(employee)

@@ -22,7 +22,7 @@ export default function EmployeeAdd() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/api/v1/emp/employees", {
+      const res = await fetch("https://comp-3123-assignment1-seven.vercel.app/api/v1/emp/employees", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
